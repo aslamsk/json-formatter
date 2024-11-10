@@ -34,6 +34,15 @@
       </v-navigation-drawer>
       <v-container>
         <v-responsive class="rounded">
+          <!-- Ads section starts -->
+          <div class="ads-container">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-8642968482474833"
+                data-ad-slot="your-ad-slot-id"
+                data-ad-format="auto"></ins>
+          </div>
+          <!-- ads section end -->
           <HelloWorld v-if="selectedNavItem ==='JSON Format'" />
           <DiffCheck v-if="selectedNavItem ==='diff check'" />
         </v-responsive>
@@ -104,6 +113,9 @@ export default {
     },
   },
   mounted() {
+    // Initialize Google AdSense Ads
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+
     // Check if the app is already installed
     if (window.matchMedia('(display-mode: standalone)').matches) {
       this.isAppInstalled = true;
@@ -135,5 +147,10 @@ export default {
 
 .rounded {
   border-radius: 4px;
+}
+
+.ads-container {
+  margin: 20px 0;
+  text-align: center;
 }
 </style>
